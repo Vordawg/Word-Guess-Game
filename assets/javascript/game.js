@@ -1,10 +1,29 @@
-var answers = ["ACURA", "AUDI", "HONDA", "HYUNDAI", "INFINITI", "LEXUS", "MAZDA", "MITSUBISHI", "NISSAN", "SUBARU", "TOYOTA", "VOLKSWAGEN", "VOLVO"];
+var answers = ["ACURA", "AUDI", "BUICK", "CADILLAC", "CHEVROLET", "CHRYSLER",
+    "DODGE", "FIAT", "FORD", "GENESIS", "HONDA", "HYUNDAI",
+    "INFINITI", "JAGUAR", "JEEP", "LEXUS", "LINCOLN", "MASERATI",
+    "MAZDA", "MITSUBISHI", "NISSAN", "PORSCHE", "SUBARU", "TESLA",
+    "TOYOTA", "VOLKSWAGEN", "VOLVO"];
 var goodGuess = [];
 var badGuess = [];
 var displayWord = "";
 var wordToGuess = "";
 var winTotal = 0;
 var lossTotal = 0;
+
+function setScreen() {
+    document.getElementById("wins-text").innerHTML = winTotal;
+    document.getElementById("losses-text").innerHTML = lossTotal;
+    document.getElementById("word-to-guess-text").innerHTML = displayWord;
+
+    var guessesRemaining = 10 - badGuess.length;
+    document.getElementById("guess-remaining-text").innerHTML = guessesRemaining;
+
+    var hangmanFile = "assets/images/" + badGuess.length + ".jpg";
+    document.getElementById("hangmanImage").src = hangmanFile;
+
+    document.getElementById("incorrectLetters-text").innerHTML = badGuess.toString();
+
+}
 
 function resetGame() {
 
@@ -23,6 +42,9 @@ function resetGame() {
     for (var loop = 0; loop < wordToGuess.length; loop++) {
         displayWord += "-"
     }
+
+    setScreen();
+
     console.log("Display Word = " + displayWord);
 }
 
@@ -72,9 +94,12 @@ function updateDisplayWord() {
         console.log("Display Word = " + displayWord);
     }
     console.log("Display Word = " + displayWord);
+
+    document.getElementById("word-to-guess-text").innerHTML = displayWord;
 }
 
 function checkGame() {
+    setScreen();
     if (badGuess.length == 10) {
         alert('You did not guess the word in 10 tries. The word you had to guess is "' + wordToGuess + '"');
         lossTotal++;
@@ -86,7 +111,7 @@ function checkGame() {
         resetGame();
     }
     else {
-        //Do Nothing and let the game continue.
+        // Do Nothing
     }
 
 }

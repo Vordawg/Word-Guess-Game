@@ -3,11 +3,53 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Guessing Game</title>
+    <title>Car Brand Guessing game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 
 <body>
-    <script src="assets\javascript\game.js"></script>
+    <div class="jumbotron">
+        <h1 class="text-center">Car Brand Guessing Game</h1>
+        <hr>
+        <div class="container">
+            <div class="row">
+                <div class="text-center col-sm-6">
+                    <h3>Wins: <span id="wins-text">0</span></h3>
+                </div>
+                <div class="text-center col-sm-6">
+                    <h3>Losses: <span id="losses-text">0</span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="text-center col-sm-12">
+                    <h3>Incorrect Letters: <span id="incorrectLetters-text"></span></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="card" style="width: 23rem;">
+                        <img src="assets/images/carlogos.jpg" class="card-img-top" id="hangmanImage2" alt="...">
+                    </div>
+                </div>
+                <div class="text-center col-sm-8">
+                    <h1><span id="word-to-guess-text"></span></h1>
+                </div>
+                <div class="col-sm-2">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/0.jpg" class="card-img-top" id="hangmanImage" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-text">Guesses Remaining: <span id="guess-remaining-text"></span></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="assets\javascript\game.js"></script>
 </body>
 
 </html>
