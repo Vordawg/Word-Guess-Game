@@ -95,7 +95,7 @@ function updateDisplayWord() {
     }
     console.log("Display Word = " + displayWord);
 
-    document.getElementById("word-to-guess-text").innerHTML = displayWord;
+    setScreen();
 }
 
 function checkGame() {
